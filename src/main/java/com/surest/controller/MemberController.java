@@ -42,7 +42,7 @@ public class MemberController {
 
     @GetMapping("/{id}")
     public Member getMember(@PathVariable @NotEmpty String id) {
-            return memberService.findById(UUID.fromString(id));
+        return memberService.findById(UUID.fromString(id));
     }
 
     @PreAuthorize("hasRole('ADMIN')")

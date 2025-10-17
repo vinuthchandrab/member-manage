@@ -2,7 +2,6 @@ package com.surest.config;
 
 import com.surest.entity.User;
 import java.util.Collection;
-import java.util.stream.Collectors;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -18,7 +17,7 @@ public class CustomUserDetails implements UserDetails {
   public Collection<? extends GrantedAuthority> getAuthorities() {
     return user.getRoles().stream()
         .map(r -> new SimpleGrantedAuthority(r.getName()))
-            .collect(Collectors.toList());
+        .toList();
   }
 
   @Override

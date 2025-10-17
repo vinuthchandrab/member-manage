@@ -19,7 +19,7 @@ public class MemberServiceImpl implements MemberService {
         this.memberRepository = memberRepository;
     }
 
-  @Override
+    @Override
   public Page<Member> findMembers(
       int page, int size, String sort, Optional<String> firstName, Optional<String> lastName) {
     Sort sorting = Sort.by(sort.split(",")[0]).ascending();

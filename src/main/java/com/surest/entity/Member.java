@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.GenericGenerator;
 
 @Data
 @AllArgsConstructor
@@ -14,11 +15,12 @@ import lombok.NoArgsConstructor;
 @Builder
 @Entity
 @Table(
-    name = "member",
-    indexes = {@Index(columnList = "email", unique = true)})
+        name = "member",
+        indexes = {@Index(columnList = "email", unique = true)})
 public class Member {
   @Id
   @GeneratedValue(generator = "uuid2")
+  @GenericGenerator(name = "uuid2", strategy = "uuid2")
   @Column(columnDefinition = "UUID")
   private UUID id;
 
