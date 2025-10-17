@@ -15,8 +15,8 @@ import org.hibernate.annotations.GenericGenerator;
 @Builder
 @Entity
 @Table(
-    name = "member",
-    indexes = {@Index(columnList = "email", unique = true)})
+        name = "member",
+        indexes = {@Index(columnList = "email", unique = true)})
 public class Member {
   @Id
   @GeneratedValue(generator = "uuid2")

@@ -27,7 +27,6 @@ public class User {
 
   private boolean enabled;
 
-  @Column(nullable = false)
   @ManyToMany(fetch = FetchType.EAGER)
   @JoinTable(
       name = "user_roles",

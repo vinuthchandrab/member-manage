@@ -12,13 +12,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(schema = "public", name = "user_roles")
+@Table(schema="public",name = "user_roles")
 public class UserRole {
 
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private UUID user_id;
+    private UUID role_id;
 
-  private UUID user_id;
-  private UUID role_id;
+
 }

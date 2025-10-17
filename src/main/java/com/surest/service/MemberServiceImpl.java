@@ -5,6 +5,8 @@ import com.surest.repository.MemberRepository;
 import jakarta.persistence.EntityNotFoundException;
 import java.util.Optional;
 import java.util.UUID;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -36,6 +38,7 @@ public class MemberServiceImpl implements MemberService {
     return memberRepository.findAll(pageable);
   }
 
+  @Cacheable(value = "member", key = "#id")
   @Override
   public Member findById(UUID id) {
     return memberRepository
@@ -63,6 +66,7 @@ public class MemberServiceImpl implements MemberService {
     return memberRepository.save(member);
   }
 
+  @CacheEvict(value = "member", key = "#id")
   @Override
   public void delete(UUID id) {
     memberRepository.deleteById(id);

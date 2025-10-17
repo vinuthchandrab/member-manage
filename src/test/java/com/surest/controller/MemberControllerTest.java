@@ -31,12 +31,10 @@ import org.springframework.test.web.servlet.MockMvc;
 
 @WebMvcTest(MemberController.class)
 @AutoConfigureMockMvc(addFilters = false)
-// @Import(MemberControllerTest.TestConfig.class)
 class MemberControllerTest {
 
   @Autowired private MockMvc mockMvc;
 
-  //    @Autowired
   @MockitoBean private MemberServiceImpl memberService;
   @MockitoBean public JwtHelper jwtHelper;
   @Autowired private MemberMapper memberMapper;

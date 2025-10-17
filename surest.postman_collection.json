@@ -255,7 +255,7 @@
 			"response": []
 		},
 		{
-			"name": "http://localhost:8080/members",
+			"name": "http://localhost:8080/members/[[memId]]",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
